@@ -1,0 +1,5 @@
+pip3 install --user numpy opencv-python Cython sklearn filterpy setuptools numba scikit-image filterpy Keras Pillow matplotlib
+pip3 install tensorflow-gpu==1.13.1
+git clone https://github.com/thtrieu/darkflow
+cd darkflow && pip3 install .
+cd ..

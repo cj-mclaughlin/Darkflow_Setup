@@ -1,4 +1,9 @@
 ## Install Scripts for Remote Servers (Ubuntu)
+This repo was made for setting up darkflow on AWS ubuntu servers. I use AWS S3 to fetch CUDA/cuDNN deps, so make sure you have AWS-CLI installed.
+```
+pip3 install awscli --upgrade --user
+```
+
 First, clone and go into the script directory
 ```
 git clone https://github.com/cj-mclaughlin/Darkflow_Setup && cd Darkflow_Setup/Install
@@ -17,15 +22,38 @@ cd OpenCV && sudo ./install_opencv 3.4
 ```
 
 ### Cuda
-Go into the Cuda directory and run the script.
-Use -r flag option to remove all previous nvidia drivers/files.
+Instead of installing Cuda over wget (due to automatic 10.1 patches), the script downloads a local .deb from an aws S3 bucket. 
+Use -r flag option to remove all previous drivers/files.
 ```
 cd Cuda && sudo ./install_cuda (-r)
 ```
 
 ### cuDNN
-We cannot install secure cuDNN files over wget, so the files must be downloaded from their website.
-I have included the most recent version (as of 6/11/2019) in this repository.
+Install script automatically grabs .tgz install file from the aforementioned S3 bucket.
 ```
 cd cuDNN && sudo ./install_cuda
 ```
+
+### TF/Darkflow
+Tensorflow/Darkflow is more percise, so the installation script is more of a guideline and I am not certain everything will run perfectly on your machine. Look through the script walk through it line-by-line if something goes wrong.
+```
+cd Flow && sudo ./install_darkflow
+```
+
+### Installation Verification
+OpenCV installation can be verified with one of the following, depending on your version.
+```
+pkg-config --modversion opencv
+pkg-config --modversion opencv3
+pkg-config --modversion opencv4
+```
+Cuda/Cudnn can be verified through:
+```
+nvidia-smi
+nvcc --version
+```
+Tensorflow and Darkflow should be tested on a sample production dataset, if available.
+
+### Future plans
+Follow-up testing.
+Move off of AWS S3 for storage and onto github LFS.
