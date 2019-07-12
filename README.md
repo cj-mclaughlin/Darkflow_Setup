@@ -4,9 +4,10 @@ This repo was made for setting up darkflow on AWS ubuntu servers. I use AWS S3 t
 pip3 install awscli --upgrade --user
 ```
 
-First, clone and go into the script directory
+First, clone and go into the script directory. (change permissions as needed)
 ```
-git clone https://github.com/cj-mclaughlin/Darkflow_Setup && cd Darkflow_Setup
+git clone https://github.com/cj-mclaughlin/Darkflow_Setup.git && chmod +x -R Darkflow_Setup
+cd Darkflow_Setup
 ```
 
 ### OpenCV
