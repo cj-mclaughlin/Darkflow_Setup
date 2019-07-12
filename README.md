@@ -1,12 +1,12 @@
 ## Install Scripts for Remote Servers (Ubuntu)
-This repo was made for setting up darkflow on AWS ubuntu servers. I use AWS S3 to fetch CUDA/cuDNN deps, so make sure you have AWS-CLI installed.
+This repo was made for setting up darkflow on AWS ubuntu servers. I use AWS S3 to fetch CUDA/cuDNN deps, so make sure you have AWS-CLI installed. If you edit any of these scripts on windows, make sure to change your line endings to LF (as opposed to CRLF), or run the scripts through `dos2unix <script-name>` first. 
 ```
 pip3 install awscli --upgrade --user
 ```
 
 First, clone and go into the script directory
 ```
-git clone https://github.com/cj-mclaughlin/Darkflow_Setup && cd Darkflow_Setup/Install
+git clone https://github.com/cj-mclaughlin/Darkflow_Setup && cd Darkflow_Setup
 ```
 
 ### OpenCV
