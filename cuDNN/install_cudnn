@@ -1,13 +1,13 @@
 #!/bin/bash
-
 GR='\033[1;32m'
 NC='\033[0m'
 
 # Install cudnn 7.5.0 for cuda 10.0
-aws s3 cp s3://cuda-install-deps/cudnn-10.0-linux-x64-v7.5.0.56.tgz . >/dev/null
+aws s3 cp s3://cuda-install-deps/cudnn-10.0-linux-x64-v7.5.0.56.tgz .
 echo -e "${GR}Installing cuDNN 7.5 toolkit with local tgz file.${NC}"
 tar -xzvf cudnn-10.0-linux-x64-v7.5.0.56.tgz
 sudo cp cuda/include/cudnn.h /usr/local/cuda/include
 sudo cp cuda/lib64/* /usr/local/cuda/lib64
 sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/*
 sudo rm -R cuda cudnn-10.0-linux-x64-v7.5.0.56.tgz
+exit 0

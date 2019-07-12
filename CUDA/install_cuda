@@ -1,16 +1,20 @@
 #!/bin/bash
-
 GR='\033[1;32m'
 NC='\033[0m'
 
 # Optionally remove all nvidia-related packages prior to install with -r option
-[ $1 == '-r' ] && (sudo apt-get --purge -y remove 'cuda*'; sudo apt-get --purge -y remove 'nvidia*';)
+if [ "$1" == -r ]
+then 
+	sudo apt-get --purge -y remove 'cuda*'
+	sudo apt-get --purge -y remove 'nvidia*'
+fi
 
 # Install cuda 10.0 toolkit
-aws s3 cp s3://cuda-install-deps/cuda-repo-ubuntu1804-10-0-local-10.0.130-410.48_1.0-1_amd64 . >/dev/null
+aws s3 cp s3://cuda-install-deps/cuda-repo-ubuntu1804-10-0-local-10.0.130-410.48_1.0-1_amd64.deb .
 echo -e "${GR}Installing Cuda 10.0 toolkit with local deb file.${NC}"
 sudo dpkg -i cuda-repo-ubuntu1804-10-0-local-10.0.130-410.48_1.0-1_amd64.deb
 sudo apt-key add /var/cuda-repo-10-0-local-10.0.130-410.48/7fa2af80.pub
 sudo apt-get update
 sudo apt-get install cuda
 sudo rm cuda-repo-ubuntu1804-10-0-local-10.0.130-410.48_1.0-1_amd64.deb
+exit 0

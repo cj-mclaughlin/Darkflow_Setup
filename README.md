@@ -1,5 +1,5 @@
 ## Install Scripts for Remote Servers (Ubuntu)
-This repo was made for setting up darkflow on AWS ubuntu servers. I use AWS S3 to fetch CUDA/cuDNN deps, so make sure you have AWS-CLI installed. If you edit any of these scripts on windows, make sure to change your line endings to LF (as opposed to CRLF), or run the scripts through `dos2unix <script-name>` first. 
+This repo was made for setting up darkflow on AWS ubuntu servers. I use AWS S3 to fetch CUDA/cuDNN deps, so make sure you have AWS-CLI installed.
 ```
 pip3 install awscli --upgrade --user
 ```
@@ -40,20 +40,19 @@ Tensorflow/Darkflow is more percise, so the installation script is more of a gui
 cd Flow && sudo ./install_darkflow
 ```
 
-### Installation Verification
+### Verify Installation
 OpenCV installation can be verified with one of the following, depending on your version.
 ```
 pkg-config --modversion opencv
 pkg-config --modversion opencv3
 pkg-config --modversion opencv4
 ```
-Cuda/Cudnn can be verified through:
+Cuda can be verified through `nvidia-smi` and to check if cuDNN added its files try:
 ```
-nvidia-smi
-nvcc --version
+CUDNN_H_PATH=/usr/local/cuda/include/cudnn.h
+cat ${CUDNN_H_PATH} | grep CUDNN_MAJOR -A 2
 ```
 Tensorflow and Darkflow should be tested on a sample production dataset, if available.
 
 ### Future plans
-Follow-up testing.
 Move off of AWS S3 for storage and onto github LFS.
