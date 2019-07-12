@@ -39,7 +39,7 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
 echo -e "${GR}Starting build of OpenCV with $(nproc) cores.${NC}"
 make -j$(nproc)
 sudo make install
-sudo export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
+export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
 echo -e "${GR}Script complete. Verify installation version below.${NC}"
 pkg-config --modversion opencv${Version:0:1}
 exit 0
