@@ -4,4 +4,6 @@ sudo -H pip3 install tensorflow-gpu==1.13.1
 git clone https://github.com/thtrieu/darkflow
 cd darkflow && pip3 install .
 cd ..
+export PATH=/usr/local/cuda-10.0/bin${PATH:+:${PATH}}
+export LD_LIBRARY_PATH=/usr/local/cuda/lib64:${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 exit 0
