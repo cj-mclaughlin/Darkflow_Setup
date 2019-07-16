@@ -1,0 +1,7 @@
+#!/bin/bash
+# Script for installing bazel -- only run this if building tensorflow from source
+sudo apt-get install pkg-config zip g++ zlib1g-dev unzip python3
+wget https://github.com/bazelbuild/bazel/releases/download/0.21.0/bazel-0.21.0-installer-linux-x86_64.sh
+chmod +x bazel-0.21.0-installer-linux-x86_64.sh
+./bazel-0.21.0-installer-linux-x86_64.sh --user
+export PATH="$PATH:$HOME/bin"

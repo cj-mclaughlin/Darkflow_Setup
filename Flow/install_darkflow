@@ -1,6 +1,6 @@
 #!/bin/bash
 sudo -H pip3 install numba numpy opencv-python Cython cython sklearn filterpy setuptools numba scikit-image filterpy Keras Pillow matplotlib keras_applications keras_preprocessing
-sudo -H pip3 install tensorflow-gpu==1.13.1
+sudo -H pip3 install tensorflow-gpu==1.13.1   # comment out this line if instead installing from source
 git clone https://github.com/thtrieu/darkflow
 cd darkflow && pip3 install .
 cd ..

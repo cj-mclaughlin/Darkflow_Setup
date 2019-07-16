@@ -35,8 +35,10 @@ Install script automatically grabs .tgz install file from the aforementioned S3 
 cd cuDNN && sudo ./install_cuda
 ```
 
-### TF/Darkflow
-Tensorflow/Darkflow is more percise, so the installation script is more of a guideline and I am not certain everything will run perfectly on your machine. Look through the script walk through it line-by-line if something goes wrong.
+### Tensorflow
+Current script installs tensorflow 1.13.1 over pip; if wanting to build from source I have included bazel v0.21 install script in the flow directory, and then you can install tensorflow from source following the guidelines [here](https://www.tensorflow.org/install/source#download_the_tensorflow_source_code). Remember sure to run `git checkout v1.13.1` or `git checkout v1.13.2` from the root of the tensorflow directory after cloning the repo. 
+
+This script also clones the darkflow repository and installs it locally with pip.
 ```
 cd Flow && sudo ./install_darkflow
 ```
